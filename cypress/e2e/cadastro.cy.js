@@ -5,16 +5,16 @@ describe('US-012-Funcionalidade: Cadastro de membros', () => {
     cy.visit('/')
 
   });
-  it('Cadastro de campos obrigatórios', () => {
+  it.only('Cadastro de campos obrigatórios', () => {
    var email = `teste${Date.now()}@teste.com`
     cy.cadastrarUsuario ('Fabio' , 'Araujo', email, '998877665' , 'Teste@123') 
-    cy.get('#signup-response').should ('contain' , '')
+    cy.get('#signup-response').should ('contain' , 'Cadastro realizado com sucesso!')
     
 })
-  it.only('Nome de usuário invalido', () => {
+  it('Nome de usuário invalido', () => {
     var email = `teste${Date.now()}@teste.com`
     cy.cadastrarUsuario ('Fabio2' , 'Araujo', email, '998877665' , 'Teste@123') 
-    cy.get('#signup-response').should ('contain' , '')
+    cy.get('#signup-response').should ('contain' , 'Nome deve conter apenas caracteres alfabéticos, acentuados e espaços')
    })
 })
 
