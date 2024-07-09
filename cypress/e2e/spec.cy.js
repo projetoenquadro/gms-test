@@ -12,3 +12,12 @@ describe('US-012-Funcionalidade: Cadastro de membros', () => {
     cy.get('#signup-response').should ('contain' , 'Cadastro realizado com sucesso')
   })
 })
+
+describe('US-012-Funcionalidade: Busca por um filme', () => {
+  it('Buscar filmes', () => {
+    cy.visit('http://127.0.0.1:8080/')
+    cy.get('#search-input').type ('Matrix')
+    cy.get('#search-button').click ()
+    
+  })
+})
